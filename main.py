@@ -1,5 +1,9 @@
 import streamlit as st
 import google.generativeai as genai
+import pandas as pd
+
+# Debug statement to print secrets (comment out in production)
+st.write(st.secrets)
 
 # Configure the Google Gemini API with your API key
 genai.configure(api_key=st.secrets["API_key"]["api_key"])
@@ -23,14 +27,14 @@ def generate_lyrics(song_title):
         return "Lyrics not found."
 
 def main():
-    st.title("Lyrics x Hunter")
+    st.title("Lyrics×Hunter")
     st.subheader("Familiar lyrics but struggling to find the song title? This app is a guardian angel! Just enter a phrase or word and we'll generate some lyrics.")
     st.text("Asie Jay E. Fondales\n"
             "BSCS 3-B AI\n"
-            "College of Computer and Information Sciences\n"
+            "College of Information Communication and Technology\n"
             "West Visayas State University")
 
-    phrase = st.text_input("Please enter a phrase or word:")
+    phrase = st.text_input("Enter a phrase or word:")
 
     if st.button("Find Songs"):
         if phrase:
