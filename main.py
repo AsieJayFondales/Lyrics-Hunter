@@ -73,10 +73,10 @@ def main():
             selected_song = st.selectbox("Choose a song to view the lyrics:", songs, key="song_select")
 
             if selected_song:
-           
 
-                if st.session_state["loading_lyrics"]:
-                    st.markdown('<div class="loading-spinner"></div> Loading lyrics...', unsafe_allow_html=True)
+                # Set a flag to indicate that lyrics are being loaded
+                if "loading_lyrics" not in st.session_state:
+                    st.session_state["loading_lyrics"] = True
 
                 session_key = "lyrics_data"
                 song_title = selected_song.split(' by ')[0]
